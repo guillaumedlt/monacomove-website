@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const articles = [
   {
@@ -12,14 +13,14 @@ const articles = [
   {
     slug: "cout-vie-monaco-budget-realiste",
     title: "Coût de la vie à Monaco : budget réaliste",
-    excerpt: "Loyer, alimentation, transports... combien coûte réellement la vie dans la Principauté ?",
+    excerpt: "Loyer, alimentation, transports... combien coûte la vie dans la Principauté ?",
     category: "Immobilier",
     readTime: "6 min",
   },
   {
     slug: "creer-entreprise-monaco-etapes",
     title: "Créer une entreprise à Monaco : les étapes",
-    excerpt: "De la SAM à la SCS, découvrez les formes juridiques pour entreprendre à Monaco.",
+    excerpt: "Les formes juridiques et démarches pour entreprendre dans la Principauté.",
     category: "Business",
     readTime: "10 min",
   },
@@ -27,44 +28,38 @@ const articles = [
 
 export function LatestPosts() {
   return (
-    <section className="border-t border-border-default py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="flex items-end justify-between">
+    <section className="py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <span className="text-xs uppercase tracking-[0.2em] font-medium text-monaco-500">Blog</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-text-primary">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text-primary">
               Dernières publications.
             </h2>
+            <p className="mt-3 text-text-secondary text-lg">Guides et actualités pour votre installation.</p>
           </div>
-          <Link
-            href="/blog"
-            className="hidden sm:flex items-center gap-2 text-sm font-medium text-monaco-500 hover:text-monaco-600 transition-colors"
-          >
-            Tous les articles
-            <ArrowRight className="h-3.5 w-3.5" />
+          <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all shrink-0">
+            Voir le blog
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="mt-12 divide-y divide-border-default">
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
           {articles.map((article) => (
             <Link
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="group flex items-center justify-between py-7 transition-colors first:pt-0"
+              className="group rounded-3xl bg-white border border-border-default p-7 transition-all duration-200 hover:shadow-lg hover:shadow-black/[0.03] hover:-translate-y-1"
             >
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs font-medium text-monaco-500 bg-monaco-50 px-2 py-0.5 rounded">
-                    {article.category}
-                  </span>
-                  <span className="text-xs text-text-muted">{article.readTime}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary group-hover:text-monaco-600 transition-colors truncate">
-                  {article.title}
-                </h3>
-                <p className="mt-1 text-sm text-text-muted hidden md:block">{article.excerpt}</p>
+              <div className="flex items-center gap-2">
+                <Badge variant="accent">{article.category}</Badge>
+                <span className="text-xs text-text-muted">{article.readTime}</span>
               </div>
-              <ArrowUpRight className="h-5 w-5 text-text-muted shrink-0 ml-6 transition-all group-hover:text-monaco-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <h3 className="mt-4 text-lg font-bold text-text-primary group-hover:text-accent transition-colors leading-snug">
+                {article.title}
+              </h3>
+              <p className="mt-2 text-sm text-text-muted leading-relaxed">
+                {article.excerpt}
+              </p>
             </Link>
           ))}
         </div>

@@ -1,96 +1,59 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const target = 0;
-    // Just animate the display to 0 from a "loading" state
-    const timer = setTimeout(() => setCount(target), 500);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section className="relative bg-dark overflow-hidden">
-      {/* Noise overlay */}
-      <div className="absolute inset-0 noise opacity-30 pointer-events-none" />
+    <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
+      {/* Soft gradient blobs */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-accent/[0.06] via-accent/[0.02] to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-blue-100/40 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-40 left-0 w-[300px] h-[300px] bg-gradient-to-br from-orange-100/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-monaco-500/10 rounded-full blur-[128px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-monaco-400/8 rounded-full blur-[100px]" />
+      <div className="relative mx-auto max-w-4xl px-4 text-center">
+        <Badge variant="accent" className="mb-6">
+          <Sparkles className="h-3 w-3" />
+          Plateforme #1 pour s&apos;installer a Monaco
+        </Badge>
 
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-8 pt-32 pb-24 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40">
-        {/* Top tag */}
-        <div className="flex items-center gap-3 mb-12">
-          <div className="h-px w-8 bg-monaco-500" />
-          <span className="text-xs uppercase tracking-[0.2em] font-medium text-monaco-400">
-            Plateforme de relocation
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-[1.08]">
+          Préparez votre
+          <br />
+          <span className="bg-gradient-to-r from-accent to-rose-400 bg-clip-text text-transparent">
+            vie à Monaco
           </span>
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-lg text-lg text-text-secondary leading-relaxed">
+          Simulateurs fiscaux, guides experts et accompagnement personnalisé.
+          Tout ce qu&apos;il faut pour votre installation dans la Principauté.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button href="/outils/simulateur-fiscal" size="lg">
+            Simuler mes économies
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+          <Button href="/outils/test-eligibilite" variant="secondary" size="lg">
+            Tester mon éligibilité
+          </Button>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
-          {/* Left — big number */}
-          <div className="lg:col-span-5">
-            <div className="relative">
-              <span className="block font-mono text-[8rem] md:text-[10rem] lg:text-[12rem] font-bold leading-none tracking-tighter text-white/[0.07]">
-                {count}%
-              </span>
-              <div className="absolute bottom-4 left-0">
-                <span className="text-sm font-medium text-dark-muted">Impôt sur le revenu</span>
-                <div className="mt-1 flex items-center gap-2">
-                  <div className="h-1.5 w-1.5 rounded-full bg-monaco-500" />
-                  <span className="text-xs text-dark-muted/60">pour les résidents non-français</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right — headline + CTAs */}
-          <div className="lg:col-span-7">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white">
-              Votre nouvelle vie
-              <br />
-              <span className="text-gradient">à Monaco</span> commence ici.
-            </h1>
-
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/50">
-              Simulateurs, guides experts et accompagnement personnalisé pour préparer
-              votre installation dans la Principauté.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button href="/outils/simulateur-fiscal" variant="dark" size="lg">
-                Simuler mes économies
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button
-                href="/outils/test-eligibilite"
-                variant="ghost"
-                size="lg"
-                className="text-white/70 hover:text-white hover:bg-white/5 border border-white/10"
-              >
-                <Play className="h-3.5 w-3.5 fill-current" />
-                Tester mon éligibilité
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom stats row */}
-        <div className="mt-20 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Floating stats cards */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { value: "36K", label: "Résidents" },
-            { value: "2km²", label: "La plus haute densité" },
-            { value: "#1", label: "Sécurité mondiale" },
-            { value: "170+", label: "Nationalités" },
+            { value: "0%", label: "Impôt sur le revenu", sub: "non-français" },
+            { value: "36K", label: "Résidents", sub: "dans la Principauté" },
+            { value: "2km²", label: "Superficie", sub: "le plus petit État" },
+            { value: "#1", label: "Sécurité", sub: "au niveau mondial" },
           ].map((stat) => (
-            <div key={stat.label}>
-              <div className="text-2xl font-bold text-white">{stat.value}</div>
-              <div className="mt-1 text-sm text-white/40">{stat.label}</div>
+            <div
+              key={stat.label}
+              className="rounded-2xl bg-white/60 backdrop-blur-sm border border-border-default p-5 text-center shadow-sm"
+            >
+              <div className="text-2xl font-bold text-text-primary">{stat.value}</div>
+              <div className="mt-1 text-sm font-medium text-text-secondary">{stat.label}</div>
+              <div className="text-xs text-text-muted">{stat.sub}</div>
             </div>
           ))}
         </div>

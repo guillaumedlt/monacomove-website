@@ -29,15 +29,6 @@ const footerLinks = [
     ],
   },
   {
-    title: "Travailler",
-    links: [
-      { label: "Emploi", href: "/travailler-monaco/emploi" },
-      { label: "Créer une entreprise", href: "/travailler-monaco/creer-entreprise" },
-      { label: "Investir", href: "/travailler-monaco/investir" },
-      { label: "Family Office", href: "/travailler-monaco/family-office" },
-    ],
-  },
-  {
     title: "Outils",
     links: [
       { label: "Simulateur fiscal", href: "/outils/simulateur-fiscal" },
@@ -59,21 +50,16 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-dark border-t border-white/[0.06]">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-3 lg:grid-cols-6 lg:py-20">
+    <footer className="bg-surface border-t border-border-default">
+      <div className="mx-auto max-w-6xl px-4 lg:px-8">
+        <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-3 lg:grid-cols-5 lg:py-20">
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h3 className="text-sm font-semibold text-white">
-                {group.title}
-              </h3>
+              <h3 className="text-sm font-bold text-text-primary">{group.title}</h3>
               <ul className="mt-4 space-y-2.5">
                 {group.links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/30 hover:text-white/70 transition-colors"
-                    >
+                    <Link href={link.href} className="text-sm text-text-muted hover:text-text-primary transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -83,21 +69,14 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] py-8 text-sm md:flex-row">
-          <div className="flex items-center gap-1">
-            <span className="font-bold text-white">Monaco</span>
-            <span className="font-bold text-monaco-400">Move</span>
-          </div>
-          <div className="flex gap-6 text-white/20">
-            <Link href="/mentions-legales" className="hover:text-white/50 transition-colors">
-              Mentions légales
-            </Link>
-            <Link href="/confidentialite" className="hover:text-white/50 transition-colors">
-              Confidentialité
-            </Link>
-            <Link href="/cgu" className="hover:text-white/50 transition-colors">
-              CGU
-            </Link>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border-default py-8 md:flex-row">
+          <Link href="/" className="text-lg font-bold tracking-tight text-text-primary">
+            Monaco<span className="text-accent">Move</span>
+          </Link>
+          <div className="flex gap-6 text-sm text-text-muted">
+            <Link href="/mentions-legales" className="hover:text-text-primary transition-colors">Mentions légales</Link>
+            <Link href="/confidentialite" className="hover:text-text-primary transition-colors">Confidentialité</Link>
+            <Link href="/cgu" className="hover:text-text-primary transition-colors">CGU</Link>
           </div>
         </div>
       </div>
