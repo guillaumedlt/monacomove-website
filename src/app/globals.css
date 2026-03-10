@@ -2,25 +2,112 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --surface: #fafafa;
+  --surface-tertiary: #f5f5f5;
+  --border: #e5e5e5;
+  --border-subtle: #f0f0f0;
+  --border-strong: #d4d4d4;
+  --text-primary: #0a0a0a;
+  --text-secondary: #525252;
+  --text-muted: #a3a3a3;
+  --monaco-red-50: #fef2f2;
+  --monaco-red-100: #fee2e2;
+  --monaco-red-200: #fecaca;
+  --monaco-red-300: #fca5a5;
+  --monaco-red-400: #f87171;
+  --monaco-red-500: #e5173f;
+  --monaco-red-600: #cc1238;
+  --monaco-red-700: #a30e2d;
+  --monaco-red-800: #7f0b23;
+  --monaco-red-900: #5c0819;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-surface: var(--surface);
+  --color-surface-tertiary: var(--surface-tertiary);
+  --color-border-default: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-monaco-50: var(--monaco-red-50);
+  --color-monaco-100: var(--monaco-red-100);
+  --color-monaco-200: var(--monaco-red-200);
+  --color-monaco-300: var(--monaco-red-300);
+  --color-monaco-400: var(--monaco-red-400);
+  --color-monaco-500: var(--monaco-red-500);
+  --color-monaco-600: var(--monaco-red-600);
+  --color-monaco-700: var(--monaco-red-700);
+  --color-monaco-800: var(--monaco-red-800);
+  --color-monaco-900: var(--monaco-red-900);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typography utilities */
+.text-display {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-h2 {
+  font-size: 1.875rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .text-display {
+    font-size: 2.25rem;
+  }
+  .text-h1 {
+    font-size: 1.875rem;
+  }
+  .text-h2 {
+    font-size: 1.5rem;
+  }
 }
