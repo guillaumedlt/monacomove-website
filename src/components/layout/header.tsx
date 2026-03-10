@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { navigation } from "@/lib/navigation";
 import { Button } from "@/components/ui/button";
 
@@ -30,17 +30,14 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "h-14 bg-white/80 backdrop-blur-lg border-b border-border-default shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
-          : "h-16 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-border-default transition-all duration-300 ${
+        scrolled ? "h-14 shadow-[0_1px_3px_rgba(0,0,0,0.04)]" : "h-16"
       }`}
     >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg tracking-tight">
-          <span className="text-monaco-500">Monaco</span>
-          <span className="text-text-primary">Move</span>
+        <Link href="/" className="font-bold text-lg tracking-tight text-text-primary">
+          MonacoMove
         </Link>
 
         {/* Desktop nav */}
@@ -88,9 +85,13 @@ export function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-3">
+          <span className="hidden lg:inline text-sm font-medium text-text-muted cursor-pointer hover:text-text-primary transition-colors">
+            FR
+          </span>
           <div className="hidden lg:block">
-            <Button href="/outils/test-eligibilite" size="sm">
-              Tester mon éligibilité
+            <Button href="/contact" size="sm">
+              Nous contacter
+              <ArrowRight className="h-3.5 w-3.5" />
             </Button>
           </div>
 

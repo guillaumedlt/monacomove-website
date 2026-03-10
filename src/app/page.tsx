@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { StatsBar } from "@/components/sections/stats-bar";
+import { TrustSignals } from "@/components/sections/trust-signals";
 import { ToolsShowcase } from "@/components/sections/tools-showcase";
 import { PersonaCards } from "@/components/sections/persona-cards";
 import { CountryGrid } from "@/components/sections/country-grid";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <StatsBar />
+      <TrustSignals />
       <ToolsShowcase />
       <PersonaCards />
       <CountryGrid />

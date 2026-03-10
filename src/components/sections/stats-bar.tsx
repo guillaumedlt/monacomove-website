@@ -3,21 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 
 interface Stat {
-  value: string;
   label: string;
+  sublabel?: string;
+  numericValue: number;
   prefix?: string;
   suffix?: string;
-  numericValue?: number;
 }
 
 const stats: Stat[] = [
-  { value: "0%", label: "Impôt sur le revenu", prefix: "", suffix: "%", numericValue: 0 },
-  { value: "39 000", label: "Résidents", numericValue: 39000 },
-  { value: "170+", label: "Nationalités", suffix: "+", numericValue: 170 },
-  { value: "#1", label: "Sécurité mondiale", prefix: "#", numericValue: 1 },
+  { label: "Impôt sur le revenu", sublabel: "Non-français", numericValue: 0, suffix: "%" },
+  { label: "Résidents", numericValue: 36, suffix: "K" },
+  { label: "Superficie", numericValue: 2, suffix: "km²" },
+  { label: "Sécurité mondiale", numericValue: 1, prefix: "#" },
 ];
 
-function AnimatedNumber({ stat }: { stat: Stat }) {
+function AnimatedStat({ stat }: { stat: Stat }) {
   const [count, setCount] = useState(0);
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -37,10 +37,14 @@ function AnimatedNumber({ stat }: { stat: Stat }) {
   }, []);
 
   useEffect(() => {
-    if (!visible || stat.numericValue === undefined) return;
+    if (!visible) return;
     const target = stat.numericValue;
-    const duration = 1500;
-    const steps = 60;
+    if (target === 0) {
+      setCount(0);
+      return;
+    }
+    const duration = 1200;
+    const steps = 40;
     const increment = target / steps;
     let current = 0;
     const timer = setInterval(() => {
@@ -55,29 +59,30 @@ function AnimatedNumber({ stat }: { stat: Stat }) {
     return () => clearInterval(timer);
   }, [visible, stat.numericValue]);
 
-  const formatted = stat.numericValue === 39000
-    ? count.toLocaleString("fr-FR")
-    : count.toString();
-
   return (
-    <div ref={ref} className="text-center">
-      <div className="font-mono text-3xl font-bold text-text-primary md:text-4xl">
+    <div ref={ref} className="py-8 lg:py-10">
+      <div className="text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
         {stat.prefix}
-        {visible ? formatted : "0"}
+        {visible ? count : 0}
         {stat.suffix}
       </div>
-      <div className="mt-2 text-sm text-text-muted">{stat.label}</div>
+      <div className="mt-1.5 text-sm text-text-secondary">{stat.label}</div>
+      {stat.sublabel && (
+        <div className="text-xs text-text-muted">{stat.sublabel}</div>
+      )}
     </div>
   );
 }
 
 export function StatsBar() {
   return (
-    <section className="bg-surface py-16 md:py-20">
+    <section className="border-y border-border-default bg-white mt-16 lg:mt-0">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border-default">
           {stats.map((stat) => (
-            <AnimatedNumber key={stat.label} stat={stat} />
+            <div key={stat.label} className="px-6 first:pl-0 last:pr-0 md:px-8">
+              <AnimatedStat stat={stat} />
+            </div>
           ))}
         </div>
       </div>

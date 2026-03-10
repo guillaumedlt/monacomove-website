@@ -69,6 +69,11 @@ export const navigation: NavGroup[] = [
     ],
   },
   {
+    label: "Guides",
+    href: "/guides",
+    items: [],
+  },
+  {
     label: "Blog",
     href: "/blog",
     items: [],

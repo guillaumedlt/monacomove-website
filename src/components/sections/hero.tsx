@@ -1,61 +1,44 @@
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ArrowRight, Calculator, Wallet, CheckCircle, BarChart3 } from "lucide-react";
-
-const quickLinks = [
-  { icon: Calculator, label: "Simulateur fiscal", href: "/outils/simulateur-fiscal" },
-  { icon: Wallet, label: "Budget", href: "/outils/budget-monaco" },
-  { icon: CheckCircle, label: "Éligibilité", href: "/outils/test-eligibilite" },
-  { icon: BarChart3, label: "Guides", href: "/guides" },
-];
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(229,23,63,0.03),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(229,23,63,0.02),transparent_50%)]" />
-      </div>
-
+    <section className="relative pt-24 lg:pt-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-display text-text-primary">
-            S&apos;installer à Monaco
-            <br />
-            <span className="text-monaco-500">en toute confiance.</span>
-          </h1>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center lg:min-h-[70vh]">
+          {/* Left column */}
+          <div className="flex flex-col items-start">
+            <span className="text-[11px] uppercase tracking-[0.15em] font-medium text-text-muted">
+              Plateforme de relocation
+            </span>
 
-          <p className="mx-auto mt-6 max-w-xl text-body-lg text-text-secondary">
-            La plateforme la plus complète pour préparer votre installation
-            dans la Principauté. Outils gratuits, guides experts, accompagnement personnalisé.
-          </p>
+            {/* Monaco flag visual */}
+            <div className="mt-8 mb-10">
+              <div className="w-48 h-24 rounded-sm overflow-hidden shadow-sm">
+                <div className="w-full h-1/2 bg-monaco-500" />
+                <div className="w-full h-1/2 bg-white border border-border-default border-t-0" />
+              </div>
+            </div>
 
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button href="/outils/test-eligibilite" size="lg">
-              Tester mon éligibilité
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-            <Button href="/guides" variant="secondary" size="lg">
-              Explorer les guides
-            </Button>
+            {/* CTAs */}
+            <div className="flex flex-col gap-3 w-full max-w-sm">
+              <Button href="/outils/simulateur-fiscal" size="lg" className="w-full justify-between">
+                Simuler mes économies fiscales
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+              <Button href="/outils/test-eligibilite" variant="secondary" size="lg" className="w-full justify-between">
+                Tester mon éligibilité
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
-        </div>
 
-        {/* Quick links */}
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4 lg:mt-20">
-          {quickLinks.map(({ icon: Icon, label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className="group flex flex-col items-center gap-3 rounded-xl border border-border-default bg-white p-5 text-center transition-all duration-200 hover:border-monaco-200 hover:bg-monaco-50/50 hover:-translate-y-0.5"
-            >
-              <Icon className="h-5 w-5 text-text-muted group-hover:text-monaco-500 transition-colors" />
-              <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">
-                {label}
-              </span>
-            </Link>
-          ))}
+          {/* Right column — large headline */}
+          <div className="lg:pl-8">
+            <h1 className="text-[2.5rem] leading-[1.12] font-semibold tracking-tight text-text-primary md:text-[3.25rem] lg:text-[3.5rem]">
+              Votre vie à Monaco, simulée avant d&apos;y arriver. Les outils interactifs que personne d&apos;autre ne propose.
+            </h1>
+          </div>
         </div>
       </div>
     </section>
