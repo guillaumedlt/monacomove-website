@@ -5,7 +5,7 @@ export function CtaBanner() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-monaco-500 to-monaco-700 px-8 py-16 text-center md:px-16 md:py-20">
+        <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-monaco-500 to-monaco-700 px-8 py-16 text-center md:px-16 md:py-20">
           {/* Subtle pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,white,transparent_50%)]" />

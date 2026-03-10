@@ -20,7 +20,7 @@ export function CountryGrid() {
             <Link
               key={country.slug}
               href={`/moving-from/${country.slug}`}
-              className="flex flex-col items-center gap-2 rounded-xl border border-border-default bg-white p-4 text-center transition-all duration-200 hover:border-border-strong hover:-translate-y-0.5"
+              className="flex flex-col items-center gap-2 rounded-lg border border-border-default bg-white p-4 text-center transition-all duration-200 hover:border-border-strong hover:-translate-y-0.5"
             >
               <span className="text-2xl">{country.flag}</span>
               <span className="text-xs font-medium text-text-secondary">

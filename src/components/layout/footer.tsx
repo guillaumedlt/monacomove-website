@@ -87,9 +87,8 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border-default py-6 text-sm text-text-muted md:flex-row">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-monaco-500">Monaco</span>
-            <span className="font-bold text-text-primary">Move</span>
-            <span className="ml-2">— Votre guide pour Monaco</span>
+            <span className="font-bold text-text-primary">MonacoMove</span>
+            <span className="ml-1">— Votre guide pour Monaco</span>
           </div>
           <div className="flex gap-6">
             <Link href="/mentions-legales" className="hover:text-text-primary transition-colors">

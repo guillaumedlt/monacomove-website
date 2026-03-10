@@ -55,7 +55,7 @@ export function LatestPosts() {
             <Link
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="group rounded-xl border border-border-default bg-white p-6 transition-all duration-200 hover:border-border-strong hover:-translate-y-0.5"
+              className="group rounded-lg border border-border-default bg-white p-6 transition-all duration-200 hover:border-border-strong hover:-translate-y-0.5"
             >
               <Badge variant="red">{article.category}</Badge>
               <h3 className="mt-4 text-lg font-semibold text-text-primary group-hover:text-monaco-600 transition-colors">

@@ -64,7 +64,7 @@ export function PersonaCards() {
             <Link
               key={href}
               href={href}
-              className="group flex items-start gap-4 rounded-xl border border-border-default bg-white p-6 transition-all duration-200 hover:border-border-strong hover:-translate-y-0.5"
+              className="group flex items-start gap-4 rounded-lg border border-border-default bg-white p-6 transition-all duration-200 hover:border-border-strong hover:-translate-y-0.5"
             >
               <div
                 className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${gradient}`}

@@ -66,7 +66,7 @@ export function Header() {
               {/* Dropdown */}
               {group.items.length > 0 && activeMenu === group.label && (
                 <div className="absolute top-full left-0 pt-2">
-                  <div className="w-56 rounded-xl border border-border-default bg-white p-2 shadow-lg shadow-black/[0.04] animate-in fade-in slide-in-from-top-1 duration-200">
+                  <div className="w-56 rounded-lg border border-border-default bg-white p-2 shadow-lg shadow-black/[0.04] animate-in fade-in slide-in-from-top-1 duration-200">
                     {group.items.map((item) => (
                       <Link
                         key={item.href}
@@ -89,7 +89,7 @@ export function Header() {
             FR
           </span>
           <div className="hidden lg:block">
-            <Button href="/contact" size="sm">
+            <Button href="/contact" size="sm" className="rounded-full">
               Nous contacter
               <ArrowRight className="h-3.5 w-3.5" />
             </Button>

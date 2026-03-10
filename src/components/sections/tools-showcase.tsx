@@ -43,7 +43,7 @@ export function ToolsShowcase() {
             <Link
               key={href}
               href={href}
-              className="group rounded-xl border border-border-default bg-white p-8 transition-all duration-200 hover:border-monaco-200 hover:-translate-y-0.5"
+              className="group rounded-lg border border-border-default bg-white p-8 transition-all duration-200 hover:border-monaco-200 hover:-translate-y-0.5"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-monaco-50 text-monaco-500 transition-colors group-hover:bg-monaco-100">
                 <Icon className="h-5 w-5" />

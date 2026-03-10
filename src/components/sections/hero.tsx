@@ -14,9 +14,9 @@ export function Hero() {
 
             {/* Monaco flag visual */}
             <div className="mt-8 mb-10">
-              <div className="w-48 h-24 rounded-sm overflow-hidden shadow-sm">
+              <div className="w-44 h-28">
                 <div className="w-full h-1/2 bg-monaco-500" />
-                <div className="w-full h-1/2 bg-white border border-border-default border-t-0" />
+                <div className="w-full h-1/2 bg-surface-tertiary" />
               </div>
             </div>
 
