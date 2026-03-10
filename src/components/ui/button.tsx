@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "dark";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps {
@@ -16,14 +16,15 @@ const variants: Record<ButtonVariant, string> = {
   primary:
     "bg-monaco-500 text-white hover:bg-monaco-600 active:bg-monaco-700",
   secondary:
-    "border border-border-default text-text-primary hover:border-border-strong hover:bg-surface-tertiary",
+    "border border-border-default text-text-primary hover:bg-surface-tertiary",
   ghost: "text-text-secondary hover:bg-surface-tertiary",
+  dark: "bg-white text-dark hover:bg-white/90",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-5 py-2.5 text-sm",
-  md: "px-6 py-3 text-sm",
-  lg: "px-6 py-4 text-[15px]",
+  sm: "h-9 px-4 text-sm",
+  md: "h-11 px-6 text-sm",
+  lg: "h-12 px-7 text-[15px]",
 };
 
 export function Button({
@@ -34,7 +35,7 @@ export function Button({
   className = "",
   onClick,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-150 ${variants[variant]} ${sizes[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 cursor-pointer ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (href) {
     return (

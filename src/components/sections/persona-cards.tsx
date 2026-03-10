@@ -1,80 +1,77 @@
 import Link from "next/link";
-import { Briefcase, Sun, Trophy, Users, TrendingUp, Laptop } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const personas = [
   {
-    icon: Briefcase,
+    emoji: "💼",
     label: "Entrepreneur",
-    description: "Créer ou transférer votre entreprise",
+    stat: "SAM, SCS, SNC...",
     href: "/travailler-monaco/creer-entreprise",
-    gradient: "from-orange-50 to-red-50",
   },
   {
-    icon: Sun,
+    emoji: "🏖️",
     label: "Retraité",
-    description: "Profiter de votre retraite au soleil",
+    stat: "0% sur les pensions",
     href: "/residence-monaco/eligibilite",
-    gradient: "from-amber-50 to-yellow-50",
   },
   {
-    icon: Trophy,
+    emoji: "🏆",
     label: "Sportif",
-    description: "Installer votre base d'entraînement",
+    stat: "F1, Tennis, Foot...",
     href: "/travailler-monaco/sportifs",
-    gradient: "from-blue-50 to-cyan-50",
   },
   {
-    icon: Users,
+    emoji: "👨‍👩‍👧‍👦",
     label: "Famille",
-    description: "Un cadre de vie sûr pour vos enfants",
+    stat: "#1 sécurité",
     href: "/residence-monaco/demarches",
-    gradient: "from-green-50 to-emerald-50",
   },
   {
-    icon: TrendingUp,
+    emoji: "📈",
     label: "Investisseur",
-    description: "Opportunités et family offices",
+    stat: "Family offices",
     href: "/travailler-monaco/investir",
-    gradient: "from-purple-50 to-violet-50",
   },
   {
-    icon: Laptop,
+    emoji: "💻",
     label: "Digital Nomad",
-    description: "Travailler depuis la Principauté",
+    stat: "Visa télétravail",
     href: "/travailler-monaco/digital-nomad",
-    gradient: "from-pink-50 to-rose-50",
   },
 ];
 
 export function PersonaCards() {
   return (
-    <section className="bg-surface py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-h2 text-text-primary">
-            Votre profil, <span className="text-monaco-500">votre guide</span>
+    <section className="bg-dark py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 noise opacity-20 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-monaco-500/5 rounded-full blur-[100px]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="max-w-xl">
+          <span className="text-xs uppercase tracking-[0.2em] font-medium text-monaco-400">Votre profil</span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-white">
+            Chaque parcours est unique.
           </h2>
-          <p className="mt-4 text-body-lg text-text-secondary">
-            Trouvez les informations adaptées à votre situation.
+          <p className="mt-4 text-lg text-white/40 leading-relaxed">
+            Un accompagnement adapté à votre situation et vos objectifs.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-          {personas.map(({ icon: Icon, label, description, href, gradient }) => (
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {personas.map(({ emoji, label, stat, href }) => (
             <Link
               key={href}
               href={href}
-              className="group flex items-start gap-4 rounded-lg border border-border-default bg-white p-6 transition-all duration-200 hover:border-border-strong hover:-translate-y-0.5"
+              className="group flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.03] p-5 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/10"
             >
-              <div
-                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${gradient}`}
-              >
-                <Icon className="h-5 w-5 text-text-secondary" />
+              <div className="flex items-center gap-4">
+                <span className="text-2xl">{emoji}</span>
+                <div>
+                  <h3 className="font-semibold text-white">{label}</h3>
+                  <p className="text-sm text-white/30">{stat}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-text-primary">{label}</h3>
-                <p className="mt-1 text-sm text-text-muted">{description}</p>
-              </div>
+              <ArrowUpRight className="h-4 w-4 text-white/20 transition-all group-hover:text-monaco-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           ))}
         </div>

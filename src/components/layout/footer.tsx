@@ -59,21 +59,20 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-default bg-white">
+    <footer className="bg-dark border-t border-white/[0.06]">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        {/* Main footer */}
-        <div className="grid grid-cols-2 gap-8 py-12 md:grid-cols-3 lg:grid-cols-6 lg:py-16">
+        <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-3 lg:grid-cols-6 lg:py-20">
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h3 className="text-sm font-semibold text-text-primary">
+              <h3 className="text-sm font-semibold text-white">
                 {group.title}
               </h3>
-              <ul className="mt-3 space-y-2">
+              <ul className="mt-4 space-y-2.5">
                 {group.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-text-muted hover:text-text-primary transition-colors"
+                      className="text-sm text-white/30 hover:text-white/70 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -84,20 +83,19 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border-default py-6 text-sm text-text-muted md:flex-row">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-text-primary">MonacoMove</span>
-            <span className="ml-1">— Votre guide pour Monaco</span>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] py-8 text-sm md:flex-row">
+          <div className="flex items-center gap-1">
+            <span className="font-bold text-white">Monaco</span>
+            <span className="font-bold text-monaco-400">Move</span>
           </div>
-          <div className="flex gap-6">
-            <Link href="/mentions-legales" className="hover:text-text-primary transition-colors">
+          <div className="flex gap-6 text-white/20">
+            <Link href="/mentions-legales" className="hover:text-white/50 transition-colors">
               Mentions légales
             </Link>
-            <Link href="/confidentialite" className="hover:text-text-primary transition-colors">
+            <Link href="/confidentialite" className="hover:text-white/50 transition-colors">
               Confidentialité
             </Link>
-            <Link href="/cgu" className="hover:text-text-primary transition-colors">
+            <Link href="/cgu" className="hover:text-white/50 transition-colors">
               CGU
             </Link>
           </div>
